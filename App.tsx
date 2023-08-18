@@ -1,6 +1,20 @@
 import React, {useCallback, useRef} from 'react';
-import {StyleSheet, LogBox} from 'react-native';
+import {StyleSheet, LogBox, View} from 'react-native';
 import {JitsiMeeting} from '@jitsi/react-native-sdk/index';
+import {
+  ADD_PEOPLE_ENABLED,
+  ANDROID_SCREENSHARING_ENABLED,
+  CAR_MODE_ENABLED,
+  CHAT_ENABLED,
+  FULLSCREEN_ENABLED,
+  HELP_BUTTON_ENABLED,
+  INVITE_ENABLED,
+  IOS_SCREENSHARING_ENABLED,
+  LOBBY_MODE_ENABLED,
+  SETTINGS_ENABLED,
+  SPEAKERSTATS_ENABLED,
+  TOOLBOX_ALWAYS_VISIBLE,
+} from '@jitsi/react-native-sdk/react/features/base/flags/constants';
 
 LogBox.ignoreAllLogs();
 
@@ -18,14 +32,30 @@ export default function App() {
   };
 
   return (
-    <JitsiMeeting
-      eventListeners={eventListeners as any}
-      ref={jitsiMeeting}
-      style={styles.flex1}
-      room={room}
-      serverURL={'https://meet.jit.si/'}
-      config={require('./config')}
-    />
+    <View style={styles.flex1}>
+      <JitsiMeeting
+        eventListeners={eventListeners as any}
+        ref={jitsiMeeting}
+        style={styles.flex1}
+        room={room}
+        serverURL={'https://meet.jit.si/'}
+        config={require('./config')}
+        flags={{
+          [SPEAKERSTATS_ENABLED]: true,
+          [FULLSCREEN_ENABLED]: false,
+          [ANDROID_SCREENSHARING_ENABLED]: true,
+          [IOS_SCREENSHARING_ENABLED]: true,
+          [CHAT_ENABLED]: false,
+          [LOBBY_MODE_ENABLED]: false,
+          [SETTINGS_ENABLED]: false,
+          [TOOLBOX_ALWAYS_VISIBLE]: true,
+          [ADD_PEOPLE_ENABLED]: false,
+          [CAR_MODE_ENABLED]: false,
+          [HELP_BUTTON_ENABLED]: false,
+          [INVITE_ENABLED]: false,
+        }}
+      />
+    </View>
   );
 }
 

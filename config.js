@@ -29,25 +29,25 @@ var config = {
   // Connection
   //
 
-  hosts: {
-    // XMPP domain.
-    domain: 'jitsi-meet.example.com',
+  // hosts: {
+  //   // XMPP domain.
+  //   domain: 'jitsi-meet.example.com',
 
-    // When using authentication, domain for guest users.
-    // anonymousdomain: 'guest.example.com',
+  //   // When using authentication, domain for guest users.
+  //   // anonymousdomain: 'guest.example.com',
 
-    // Domain for authenticated users. Defaults to <domain>.
-    // authdomain: 'jitsi-meet.example.com',
+  //   // Domain for authenticated users. Defaults to <domain>.
+  //   // authdomain: 'jitsi-meet.example.com',
 
-    // Focus component domain. Defaults to focus.<domain>.
-    // focus: 'focus.jitsi-meet.example.com',
+  //   // Focus component domain. Defaults to focus.<domain>.
+  //   // focus: 'focus.jitsi-meet.example.com',
 
-    // XMPP MUC domain. FIXME: use XEP-0030 to discover it.
-    muc: 'conference.' + subdomain + 'jitsi-meet.example.com',
-  },
+  //   // XMPP MUC domain. FIXME: use XEP-0030 to discover it.
+  //   muc: 'conference.' + subdomain + 'jitsi-meet.example.com',
+  // },
 
   // BOSH URL. FIXME: use XEP-0156 to discover it.
-  bosh: 'https://jitsi-meet.example.com/' + subdir + 'http-bind',
+  // bosh: 'https://jitsi-meet.example.com/' + subdir + 'http-bind',
 
   // Websocket URL (XMPP)
   // websocket: 'wss://jitsi-meet.example.com/' + subdir + 'xmpp-websocket',
@@ -99,13 +99,13 @@ var config = {
   // disableModeratorIndicator: false,
 
   // Disables the reactions feature.
-  // disableReactions: true,
+  disableReactions: true,
 
   // Disables the reactions moderation feature.
-  // disableReactionsModeration: false,
+  disableReactionsModeration: false,
 
   // Disables polls feature.
-  // disablePolls: false,
+  disablePolls: true,
 
   // Disables self-view tile. (hides it from tile view and from filmstrip)
   // disableSelfView: false,
@@ -113,16 +113,16 @@ var config = {
   // Disables self-view settings in UI
   // disableSelfViewSettings: false,
 
-  // screenshotCapture : {
-  //      Enables the screensharing capture feature.
-  //      enabled: false,
-  //
-  //      The mode for the screenshot capture feature.
-  //      Can be either 'recording' - screensharing screenshots are taken
-  //      only when the recording is also on,
-  //      or 'always' - screensharing screenshots are always taken.
-  //      mode: 'recording',
-  // }
+  screenshotCapture: {
+    //  Enables the screensharing capture feature.
+    enabled: true,
+
+    //  The mode for the screenshot capture feature.
+    //  Can be either 'recording' - screensharing screenshots are taken
+    //  only when the recording is also on,
+    //  or 'always' - screensharing screenshots are always taken.
+    //  mode: 'recording',
+  },
 
   // Disables ICE/UDP by filtering out local and remote UDP candidates in
   // signalling.
@@ -214,23 +214,19 @@ var config = {
   // Specifies whether the raised hand will hide when someone becomes a dominant speaker or not
   // disableRemoveRaisedHandOnFocus: false,
 
-  // speakerStats: {
-  //     // Specifies whether the speaker stats is enable or not.
-  //     disabled: false,
+  speakerStats: {
+    // Specifies whether the speaker stats is enable or not.
+    disabled: false,
 
-  //     // Specifies whether there will be a search field in speaker stats or not.
-  //     disableSearch: false,
+    // Specifies whether there will be a search field in speaker stats or not.
+    disableSearch: false,
 
-  //     // Specifies whether participants in speaker stats should be ordered or not, and with what priority.
-  //     // 'role', <- Moderators on top.
-  //     // 'name', <- Alphabetically by name.
-  //     // 'hasLeft', <- The ones that have left in the bottom.
-  //     order: [
-  //         'role',
-  //         'name',
-  //         'hasLeft',
-  //     ],
-  // },
+    // Specifies whether participants in speaker stats should be ordered or not, and with what priority.
+    // 'role', <- Moderators on top.
+    // 'name', <- Alphabetically by name.
+    // 'hasLeft', <- The ones that have left in the bottom.
+    order: ['role', 'name', 'hasLeft'],
+  },
 
   // DEPRECATED. Please use speakerStats.disableSearch instead.
   // Specifies whether there will be a search field in speaker stats or not
@@ -581,20 +577,20 @@ var config = {
   // },
 
   // Configs for the lobby screen.
-  // lobby {
-  //     // If Lobby is enabled, it starts knocking automatically. Replaces `autoKnockLobby`.
-  //     autoKnock: false,
-  //     // Enables the lobby chat. Replaces `enableLobbyChat`.
-  //     enableChat: true,
-  // },
+  lobby: {
+    // If Lobby is enabled, it starts knocking automatically. Replaces `autoKnockLobby`.
+    autoKnock: false,
+    // Enables the lobby chat. Replaces `enableLobbyChat`.
+    enableChat: false,
+  },
 
   // Configs for the security related UI elements.
-  // securityUi: {
-  //     // Hides the lobby button. Replaces `hideLobbyButton`.
-  //     hideLobbyButton: false,
-  //     // Hides the possibility to set and enter a lobby password.
-  //     disableLobbyPassword: false,
-  // },
+  securityUi: {
+    // Hides the lobby button. Replaces `hideLobbyButton`.
+    hideLobbyButton: true,
+    // Hides the possibility to set and enter a lobby password.
+    disableLobbyPassword: true,
+  },
 
   // Disable app shortcuts that are registered upon joining a conference
   // disableShortcuts: false,
@@ -708,56 +704,56 @@ var config = {
   // - it's impossible to control the placement of buttons
   // - 'desktop' controls the "Share your screen" button
   // - if `toolbarButtons` is undefined, we fallback to enabling all buttons on the UI
-  // toolbarButtons: [
-  //    'camera',
-  //    'chat',
-  //    'closedcaptions',
-  //    'desktop',
-  //    'download',
-  //    'embedmeeting',
-  //    'etherpad',
-  //    'feedback',
-  //    'filmstrip',
-  //    'fullscreen',
-  //    'hangup',
-  //    'help',
-  //    'highlight',
-  //    'invite',
-  //    'linktosalesforce',
-  //    'livestreaming',
-  //    'microphone',
-  //    'noisesuppression',
-  //    'participants-pane',
-  //    'profile',
-  //    'raisehand',
-  //    'recording',
-  //    'security',
-  //    'select-background',
-  //    'settings',
-  //    'shareaudio',
-  //    'sharedvideo',
-  //    'shortcuts',
-  //    'stats',
-  //    'tileview',
-  //    'toggle-camera',
-  //    'videoquality',
-  //    'whiteboard',
-  // ],
+  toolbarButtons: [
+    'camera',
+    'chat',
+    // 'closedcaptions',
+    // 'desktop',
+    // 'download',
+    // 'embedmeeting',
+    // 'etherpad',
+    // 'feedback',
+    // 'filmstrip',
+    // 'fullscreen',
+    // 'hangup',
+    // 'help',
+    // 'highlight',
+    // 'invite',
+    // 'linktosalesforce',
+    // 'livestreaming',
+    'microphone',
+    // 'noisesuppression',
+    // 'participants-pane',
+    // 'profile',
+    // 'raisehand',
+    // 'recording',
+    // 'security',
+    // 'select-background',
+    // 'settings',
+    // 'shareaudio',
+    // 'sharedvideo',
+    // 'shortcuts',
+    // 'stats',
+    // 'tileview',
+    // 'toggle-camera',
+    // 'videoquality',
+    // 'whiteboard',
+  ],
 
   // Holds values related to toolbar visibility control.
-  // toolbarConfig: {
-  //     // Moved from interfaceConfig.INITIAL_TOOLBAR_TIMEOUT
-  //     // The initial number of milliseconds for the toolbar buttons to be visible on screen.
-  //     initialTimeout: 20000,
-  //     // Moved from interfaceConfig.TOOLBAR_TIMEOUT
-  //     // Number of milliseconds for the toolbar buttons to be visible on screen.
-  //     timeout: 4000,
-  //     // Moved from interfaceConfig.TOOLBAR_ALWAYS_VISIBLE
-  //     // Whether toolbar should be always visible or should hide after x milliseconds.
-  //     alwaysVisible: false,
-  //     // Indicates whether the toolbar should still autohide when chat is open
-  //     autoHideWhileChatIsOpen: false,
-  // },
+  toolbarConfig: {
+    // Moved from interfaceConfig.INITIAL_TOOLBAR_TIMEOUT
+    // The initial number of milliseconds for the toolbar buttons to be visible on screen.
+    // initialTimeout: 20000,
+    // Moved from interfaceConfig.TOOLBAR_TIMEOUT
+    // Number of milliseconds for the toolbar buttons to be visible on screen.
+    // timeout: 4000,
+    // Moved from interfaceConfig.TOOLBAR_ALWAYS_VISIBLE
+    // Whether toolbar should be always visible or should hide after x milliseconds.
+    alwaysVisible: true,
+    // Indicates whether the toolbar should still autohide when chat is open
+    autoHideWhileChatIsOpen: false,
+  },
 
   // Toolbar buttons which have their click/tap event exposed through the API on
   // `toolbarButtonClicked`. Passing a string for the button key will
@@ -1663,6 +1659,18 @@ var config = {
   //         collectionInterval?: number;
   //         logGetStats?: boolean;
   // },
+  flags: {
+    // Enables source names in the signaling.
+    sourceNameSignaling: true,
+
+    // Enables sending multiple video streams, i.e., camera and desktop tracks can be shared in the conference
+    // separately as two different streams instead of one composite stream.
+    sendMultipleVideoStreams: true,
+
+    // Signal that this client supports receiving multiple video streams. Without this flag jicofo will enable
+    // multi-stream backward compatibility.
+    receiveMultipleVideoStreams: true,
+  },
 };
 
 // Temporary backwards compatibility with old mobile clients.
@@ -1678,3 +1686,5 @@ if (enableJaaS) {
   config.dialInConfCodeUrl = 'https://conference-mapper.jitsi.net/v1/access';
   config.roomPasswordNumberOfDigits = 10; // skip re-adding it (do not remove comment)
 }
+
+export default config;
