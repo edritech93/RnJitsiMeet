@@ -708,7 +708,7 @@ var config = {
     'camera',
     'chat',
     // 'closedcaptions',
-    // 'desktop',
+    'desktop',
     // 'download',
     // 'embedmeeting',
     // 'etherpad',
@@ -1659,18 +1659,6 @@ var config = {
   //         collectionInterval?: number;
   //         logGetStats?: boolean;
   // },
-  flags: {
-    // Enables source names in the signaling.
-    sourceNameSignaling: true,
-
-    // Enables sending multiple video streams, i.e., camera and desktop tracks can be shared in the conference
-    // separately as two different streams instead of one composite stream.
-    sendMultipleVideoStreams: true,
-
-    // Signal that this client supports receiving multiple video streams. Without this flag jicofo will enable
-    // multi-stream backward compatibility.
-    receiveMultipleVideoStreams: true,
-  },
 };
 
 // Temporary backwards compatibility with old mobile clients.

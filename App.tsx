@@ -45,7 +45,7 @@ export default function App() {
           [FULLSCREEN_ENABLED]: false,
           [ANDROID_SCREENSHARING_ENABLED]: true,
           [IOS_SCREENSHARING_ENABLED]: true,
-          [CHAT_ENABLED]: false,
+          [CHAT_ENABLED]: true,
           [LOBBY_MODE_ENABLED]: false,
           [SETTINGS_ENABLED]: false,
           [TOOLBOX_ALWAYS_VISIBLE]: true,
