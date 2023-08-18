@@ -11,6 +11,7 @@ import {
   INVITE_ENABLED,
   IOS_SCREENSHARING_ENABLED,
   LOBBY_MODE_ENABLED,
+  PREJOIN_PAGE_ENABLED,
   SETTINGS_ENABLED,
   SPEAKERSTATS_ENABLED,
   TOOLBOX_ALWAYS_VISIBLE,
@@ -53,6 +54,12 @@ export default function App() {
           [CAR_MODE_ENABLED]: false,
           [HELP_BUTTON_ENABLED]: false,
           [INVITE_ENABLED]: false,
+          [PREJOIN_PAGE_ENABLED]: false,
+        }}
+        userInfo={{
+          displayName: 'test-user',
+          email: 'test@user.com',
+          avatarURL: 'https://placehold.co/400',
         }}
       />
     </View>
