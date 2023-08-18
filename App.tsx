@@ -25,11 +25,6 @@ export default function App() {
       room={room}
       serverURL={'https://meet.jit.si/'}
       config={require('./config')}
-      flags={{
-        'call-integration.enabled': true,
-        'fullscreen.enabled': false,
-        'invite.enabled': true,
-      }}
     />
   );
 }
