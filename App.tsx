@@ -1,5 +1,5 @@
 import React, {useCallback, useRef} from 'react';
-import {StyleSheet, LogBox, View} from 'react-native';
+import {StyleSheet, LogBox, View, Platform} from 'react-native';
 import {JitsiMeeting} from '@jitsi/react-native-sdk/index';
 import {
   ADD_PEOPLE_ENABLED,
@@ -57,8 +57,8 @@ export default function App() {
           [PREJOIN_PAGE_ENABLED]: false,
         }}
         userInfo={{
-          displayName: 'test-user',
-          email: 'test@user.com',
+          displayName: Platform.OS,
+          email: `test@${Platform.OS}.com`,
           avatarURL: 'https://placehold.co/400',
         }}
       />
